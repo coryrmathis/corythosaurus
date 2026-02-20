@@ -10,26 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_07_160241) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_07_175439) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "days", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "entries", force: :cascade do |t|
     t.text "body", null: false
+    t.string "category", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "todos", force: :cascade do |t|
-    t.text "description"
-    t.bigint "day_id"
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "taggable_type"
+    t.bigint "taggable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["day_id"], name: "index_todos_on_day_id"
+    t.index ["taggable_type", "taggable_id"], name: "index_tags_on_taggable"
   end
 end

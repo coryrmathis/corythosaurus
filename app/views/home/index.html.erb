@@ -1,8 +1,16 @@
-<%@entries.each do |entry|%>
-  <div class="card">
-    <div class="card-body">
-      <%=entry.body%>
-    </div>
+<div class="row">
+  <div class="col-md-6">
+    <%@entries.each do |entry|%>
+      <div class="card">
+        <div class="card-body">
+          <pre>
+            <code>
+              <%=entry.body%>
+            </code>
+          </pre>
+        </div>
+      </div>
+    <%end%>
   </div>
-<%end%>
+</div>
 
