@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   namespace :tech do
     resources :entries
   end
+
+  namespace :music do
+    root "home#index"
+  end
+
   # Defines the root path route ("/")
   root "home#index"
 end
